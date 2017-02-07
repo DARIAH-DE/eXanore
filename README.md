@@ -1,7 +1,7 @@
 # eXanore
 JWT enabled implementation of annotatorjs.org Storage API as eXist-db library
 used by the DARIAH-DE Annotation Store.
-View, share and export your annotations with the [AnnotationViewer](https://github.com/DARIAH-DE/eXv).
+View, share and export your annotations with the [AnnotationViewer](https://github.com/DARIAH-DE/eXanore-viewer).
 
 ## Build
 Call `ant` in the root directory of the repo.
