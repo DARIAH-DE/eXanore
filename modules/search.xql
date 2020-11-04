@@ -29,7 +29,6 @@
 xquery version "3.0";
 
 (: import relevant eXist-db modules :)
-import module namespace console="http://exist-db.org/xquery/console";
 import module namespace xqjson="http://xqilla.sourceforge.net/lib/xqjson";
 import module namespace exanoreParam="http://www.eXanore.com/param" at "params.xqm";
 

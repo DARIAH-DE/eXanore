@@ -26,7 +26,6 @@
 xquery version "3.0";
 
 
-import module namespace console="http://exist-db.org/xquery/console" at "java:org.exist.console.xquery.ConsoleModule";
 import module namespace exanoreParam="http://www.eXanore.com/param" at "modules/params.xqm";
 
 
@@ -42,7 +41,6 @@ declare variable $exist:root external;
 (: declare variable $jwtTtl := $jwt//jwt:ttl/text();:)
 
 if(true()) then
-    let $test := console:log( request:get-method() )
     return
     if ($exist:path eq '') then
         <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
