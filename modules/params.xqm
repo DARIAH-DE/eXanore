@@ -27,4 +27,4 @@ xquery version "3.0";
 module namespace exanoreParam="http://www.eXanore.com/param";
 
 declare variable $exanoreParam:dataCollectionURI := '/db/apps/eXanore/annotations/';
-declare variable $exanoreParam:JwtSecret := '';
+declare variable $exanoreParam:JwtSecret := environment-variable('JWT_SECRET');
