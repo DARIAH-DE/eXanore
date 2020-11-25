@@ -23,11 +23,9 @@
  :)
 
 
-xquery version "3.0";
-
+xquery version "3.1";
 
 import module namespace exanoreParam="http://www.eXanore.com/param" at "modules/params.xqm";
-
 
 declare variable $exist:path external;
 declare variable $exist:resource external;

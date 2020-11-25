@@ -31,6 +31,7 @@ xquery version "3.1";
 (: import relevant eXist-db modules :)
 import module namespace xqjson="http://xqilla.sourceforge.net/lib/xqjson";
 import module namespace exanoreParam="http://www.eXanore.com/param" at "params.xqm";
+import module namespace jwt="http://de.dariah.eu/ns/exist-jwt-module";
 
 declare option exist:serialize "method=text media-type=text/plain";
 
@@ -38,12 +39,15 @@ declare option exist:serialize "method=text media-type=text/plain";
 declare variable $uri := request:get-parameter('uri', '');
 (:declare variable $limit := request:get-parameter('limit', '20');
  : LIMIT is ignored at this time :)
-declare variable $userId := xmldb:get-current-user();
+declare variable $authToken := request:get-header('x-annotator-auth-token');
+declare variable $user := jwt:verify($authToken, $exanoreParam:JwtSecret);
+declare variable $userId := string($user//jwt:userId);
 
 declare variable $results :=
-for $object at $pos in collection($exanoreParam:dataCollectionURI)//pair[@name = "uri"][. = $uri]/parent::item[//pair[@name="read"]/string(.) = ($userId, "")]
-(:where $pos <= xs:integer($limit):)
-return $object;
+    collection($exanoreParam:dataCollectionURI)//pair
+        [@name = "uri"]
+        [. = $uri]/parent::item
+                    [//pair[@name="read"]/string(.) = ($userId, "")];
 
 declare variable $total := count($results);
 
