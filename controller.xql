@@ -39,7 +39,7 @@ declare variable $exist:root external;
 (: declare variable $jwtTtl := $jwt//jwt:ttl/text();:)
 
 if(true()) then
-    return
+
     if ($exist:path eq '') then
         <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
             <redirect url="{request:get-uri()}/"/>
