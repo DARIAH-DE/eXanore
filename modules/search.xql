@@ -26,7 +26,7 @@
  : along with this program.  If not, see <http://www.gnu.org/licenses/>.
  :)
 
-xquery version "3.0";
+xquery version "3.1";
 
 (: import relevant eXist-db modules :)
 import module namespace xqjson="http://xqilla.sourceforge.net/lib/xqjson";

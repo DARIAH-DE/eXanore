@@ -1,4 +1,4 @@
-xquery version "3.0";
+xquery version "3.1";
 
 (: import relevant eXist-db modules :)
 import module namespace request="http://exist-db.org/xquery/request";
@@ -77,10 +77,9 @@ declare function local:store($collection-uri,$resource-name,$contents){
   else()
 };
 
-declare function eX:store(){
-let $login:= xmldb:login($exanoreParam:dataCollectionURI, "annotator", "annotator")
-return
-    xmldb:store($exanoreParam:dataCollectionURI, $filename, $readyXML)
+declare function eX:store()
+as xs:string {
+  xmldb:store($exanoreParam:dataCollectionURI, $filename, $readyXML)
 };
 
 let $origin := "*"

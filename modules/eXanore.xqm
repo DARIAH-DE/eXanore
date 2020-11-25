@@ -22,7 +22,7 @@
  : along with this program.  If not, see <http://www.gnu.org/licenses/>.
  :)
 
-xquery version "3.0";
+xquery version "3.1";
 
 module namespace exanore="https://www.exanore.com";
 

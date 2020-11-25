@@ -22,7 +22,7 @@
  : along with this program.  If not, see <http://www.gnu.org/licenses/>.
  :)
 
-xquery version "3.0";
+xquery version "3.1";
 (: import relevant eXist-db modules :)
 import module namespace exanoreParam="http://www.eXanore.com/param" at "params.xqm";
 import module namespace jwt="http://de.dariah.eu/ns/exist-jwt-module";
@@ -44,7 +44,6 @@ if($userValid) then
     return
         if( $annotation//pair[@name="admin"]/item/text() = $user//jwt:userId/text() )
         then
-            let $login:= xmldb:login($exanoreParam:dataCollectionURI, "annotator", "annotator")
             let $DELETE := if($id != "") then xmldb:remove($exanoreParam:dataCollectionURI, $id || ".xml") else ()
             return
                 response:set-status-code( 204 )
